@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip calculator app</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <h1 class="app-title">SPLI<span class="title-line-2">TTER</span></h1>
+        <div class="calc-container">
+            <div class="calculator-input">
+                <form action="calculator-fill">
+                    <div class="bill-amount">
+                        <label for="bill" class="bill-label">Bill</label>
+                        <img class="bill-icon" src="./images/icon-dollar.svg" alt="dollar sign">
+                        <input type="number" name="bill" id="bill" placeholder="0" required min="0" step="any" onkeypress="OnClickEnter(event)">
+                    </div>
+                    <div class="percent-select">
+                      <h3 class="percent-select-tag label">Select Tip %</h3>
+                      <div class="tip-option-container percent">
+                        <button type="button" class="tip-option tip-option-btn" onclick="calcPercentage('5')">5%</button>
+                        <button type="button" class="tip-option tip-option-btn" onclick="calcPercentage('10')">10%</button>
+                        <button type="button" class="tip-option tip-option-btn" onclick="calcPercentage('15')">15%</button>
+                        <button type="button" class="tip-option tip-option-btn" onclick="calcPercentage('25')">25%</button>
+                        <button type="button" class="tip-option tip-option-btn" onclick="calcPercentage('50')">50%</button> 
+                        <div class="tip-opt tip-opt-input">
+                            <input type="number" placeholder="Custom" class="percent-input" min="0" step="any" onkeypress="OnClickEnter(event)"
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                maxlength="3">
+                        </div>
+                      </div>  
+                    </div>
+                    <div class="people-amount">
+                        <label for="people" class="people-label label">Number of People</label>
+                        <img class="people-icon" src="./images/icon-person.svg" alt="people icon">
+                        <input type="number" placeholder="0" id="people" name="people" required min="1" onkeypress="OnClickEnter(event)">
+                    </div>
+                    <button title="btn" class="btn-submit" type="submit"></button>
+                </form>
+            </div>
+            <div class="calculation">
+                <div class="tip-amount-container">
+                    <div class="tip-amount-title">
+                       <p class="title">Tip Amount</p>
+                       <span>/ person</span>
+                    </div>
+                    <p class="tip-currency">$<span class="tip-amount">0.00</span></p> 
+                </div>
+                <div class="total-amount-container">
+                    <div class="total-amount-title">
+                        <p class="title">Total</p>
+                        <span>/ person</span>
+                    </div>
+                    <p class="total-amount">$<span class="amount-total">0.00</span></p>        
+                </div>
+                <button type="button" class="btn-reset" disabled>RESET</button>
+            </div>    
+        </card>
+    </main>
+    <footer class="attribute">
+        Challenge by <span><a href="https://www.frontendmentor.io?ref=challenge" target="_blank"> Frontend mentor </a></span> 
+        coded by <span><a href="https://github.com/CEE-AI"> Ihedioha Chijioke </a></span>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js"></script>
+    <script>
+        TweenMax.staggerFrom('h1', 1.4, {
+      delay: 0.2,
+      opacity: 0,
+      y: -10,
+      ease: Expo.easeOut
+
+    });
+    TweenMax.staggerFrom('main', 1, {
+      delay: 0.2,
+      opacity: 0,
+      y: 50,
+      ease: Expo.easeInOut
+
+    });
+
+    TweenMax.staggerFrom('.calculator-input', 1, {
+      delay: 0.5,
+      opacity: 0,
+      x: -50,
+      ease: Expo.easeInOut
+
+    });
+    TweenMax.staggerFrom('.calculation', 1, {
+      delay: 0.5,
+      opacity: 0,
+      x: 50,
+      ease: Expo.easeInOut
+
+    });
+    TweenMax.staggerFrom('.attribution', 1.6, {
+      delay: 0.5,
+      opacity: 0,
+      x: 50,
+      ease: Expo.easeInOut
+
+    });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
